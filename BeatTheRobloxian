@@ -148,7 +148,7 @@ GunTab:AddToggle({
 
 GunTab:AddSlider({
 	Name = "Set FireRate",
-	Min = 0.001,
+	Min = 0.0001,
 	Max = 1,
 	Default = 0.05,
 	Increment = 0.01,
@@ -173,7 +173,7 @@ GunTab:AddToggle({
 GunTab:AddSlider({
 	Name = "Set Spread",
 	Min = 0,
-	Max = 10,
+	Max = 100,
 	Default = 0,
 	Increment = 1,
 	ValueName = "Spread",
@@ -197,8 +197,8 @@ GunTab:AddToggle({
 GunTab:AddSlider({
 	Name = "Set Bullets Per Shot",
 	Min = 1,
-	Max = 500,
-	Default = 50,
+	Max = 1000,
+	Default = 30,
 	Increment = 1,
 	ValueName = "Bullets",
 	Callback = function(Value)
