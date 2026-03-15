@@ -173,7 +173,7 @@ GunTab:AddToggle({
 GunTab:AddSlider({
 	Name = "Set Spread",
 	Min = 0,
-	Max = 100,
+	Max = 750,
 	Default = 0,
 	Increment = 1,
 	ValueName = "Spread",
