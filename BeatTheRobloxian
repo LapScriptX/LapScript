@@ -1,67 +1,272 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
-local Window = Library:NewWindow("Beat the Robloxian! [Beta]")
-local Tab = Window:NewSection("Setup")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "LapScriptX", IntroText = "LapScripterX", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionFile"})
 
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService = game:GetService("RunService")
+-------------------------------------------------
+-- Credit Tab
+-------------------------------------------------
 
-local Player = Players.LocalPlayer
-local Remotes = ReplicatedStorage:WaitForChild("Remotes")
+local CT = Window:MakeTab({
+	Name = "Credit",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Root = Character:WaitForChild("HumanoidRootPart")
+-------------------------------------------------
+-- GUN MOD TAB
+-------------------------------------------------
 
-local Auto = false
-local Connection
+local GunTab = Window:MakeTab({
+	Name = "Gun Mods",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-local function GetNearest()
-    local dist = math.huge
-    local target = nil
+-------------------------------------------------
+-- COMBAT TAB
+-------------------------------------------------
 
-    for _,v in pairs(workspace:GetChildren()) do
-        local hum = v:FindFirstChild("Humanoid")
-        if hum and hum.Health > 0 and not Players:GetPlayerFromCharacter(v) then
 
-            local part = v:FindFirstChild("HumanoidRootPart") or v:FindFirstChild("Head")
 
-            if part then
-                local mag = (Root.Position - part.Position).Magnitude
+local CombatTab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-                if mag < dist then
-                    dist = mag
-                    target = part
+local path = game.ReplicatedStorage.Modules.Tools.Gun.Settings
+
+-- VALUES
+local AmmoValue = 9999
+local FireRateValue = 0.05
+local SpreadValue = 0
+local BulletValue = 50
+
+local AmmoToggle = false
+local FireToggle = false
+local SpreadToggle = false
+local BulletToggle = false
+local ReloadToggle = false
+
+-------------------------------------------------
+-- AUTO PARRY
+-------------------------------------------------
+
+local AutoParry = false
+
+local function SimulateAttack()
+	local args = {
+		[1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sword"),
+		[2] = 1
+	}
+	game:GetService("ReplicatedStorage").Remotes.MeleeAttacked:FireServer(unpack(args))
+end
+
+CombatTab:AddLabel("This Script Not Working With Wave Defense")
+
+CombatTab:AddToggle({
+	Name = "Auto Parry",
+	Default = false,
+	Callback = function(Value)
+		AutoParry = Value
+	end
+})
+
+spawn(function()
+	while task.wait(0.2) do
+		if AutoParry then
+			SimulateAttack()
+		end
+	end
+end)
+
+CombatTab:AddButton({
+	Name = "Kill Aura",
+	Callback = function()
+      	local v1 = game:GetService("Players").LocalPlayer
+local v2 = game:GetService("ReplicatedStorage").Remotes
+local v3 = v1.Character or v1.CharacterAdded:Wait()
+local v4 = v3:WaitForChild("HumanoidRootPart")
+
+local function v5()
+    local v6, v7 = math.huge, nil
+    for _, v8 in pairs(workspace:GetChildren()) do
+        local v9 = v8:FindFirstChild("Humanoid")
+        if v9 and v9.Health > 0 and not game:GetService("Players"):GetPlayerFromCharacter(v8) then
+            local v10 = v8:FindFirstChild("HumanoidRootPart") or v8:FindFirstChild("Head")
+            if v10 then
+                local v11 = (v4.Position - v10.Position).Magnitude
+                if v11 < v6 then
+                    v6, v7 = v11, v10
                 end
             end
         end
     end
-
-    return target
+    return v7
 end
 
-Tab:CreateToggle("Aura Kill", function(value)
-    Auto = value
-
-    if Auto then
-        Connection = RunService.Heartbeat:Connect(function()
-
-            local Tool = Character:FindFirstChildOfClass("Tool") or Player.Backpack:FindFirstChild("Fists")
-
-            if Tool then
-                local Target = GetNearest()
-
-                if Target then
-                    Remotes.MeleeAttacked:FireServer(Tool,1)
-                    Remotes.MeleeHit:FireServer(Tool,Target)
-                end
-            end
-
-        end)
-    else
-        if Connection then
-            Connection:Disconnect()
+game:GetService("RunService").Heartbeat:Connect(function()
+    local v12 = v3:FindFirstChildOfClass("Tool") or v1.Backpack:FindFirstChild("Fists")
+    if v12 then
+        local v13 = v5()
+        if v13 then
+            v2.MeleeAttacked:FireServer(v12, 1)
+            v2.MeleeHit:FireServer(v12, v13)
         end
     end
 end)
+  	end    
+})
 
-local Tab = Window:NewSection("By: LapScript#4402")
+
+
+-------------------------------------------------
+-- AMMO
+-------------------------------------------------
+
+GunTab:AddLabel("This Script Working With Wave Defense")
+
+GunTab:AddTextbox({
+	Name = "Type Ammo",
+	Default = "9999",
+	TextDisappear = false,
+	Callback = function(Value)
+		AmmoValue = tonumber(Value) or 9999
+	end
+})
+
+GunTab:AddToggle({
+	Name = "Enable Custom Ammo",
+	Default = false,
+	Callback = function(Value)
+		AmmoToggle = Value
+	end
+})
+
+-------------------------------------------------
+-- FIRERATE
+-------------------------------------------------
+
+GunTab:AddSlider({
+	Name = "Set FireRate",
+	Min = 0.001,
+	Max = 1,
+	Default = 0.05,
+	Increment = 0.01,
+	ValueName = "Rate",
+	Callback = function(Value)
+		FireRateValue = Value
+	end
+})
+
+GunTab:AddToggle({
+	Name = "Enable Fast FireRate",
+	Default = false,
+	Callback = function(Value)
+		FireToggle = Value
+	end
+})
+
+-------------------------------------------------
+-- SPREAD
+-------------------------------------------------
+
+GunTab:AddSlider({
+	Name = "Set Spread",
+	Min = 0,
+	Max = 10,
+	Default = 0,
+	Increment = 1,
+	ValueName = "Spread",
+	Callback = function(Value)
+		SpreadValue = Value
+	end
+})
+
+GunTab:AddToggle({
+	Name = "Enable Spread Mod",
+	Default = false,
+	Callback = function(Value)
+		SpreadToggle = Value
+	end
+})
+
+-------------------------------------------------
+-- MULTI BULLETS
+-------------------------------------------------
+
+GunTab:AddSlider({
+	Name = "Set Bullets Per Shot",
+	Min = 1,
+	Max = 500,
+	Default = 50,
+	Increment = 1,
+	ValueName = "Bullets",
+	Callback = function(Value)
+		BulletValue = Value
+	end
+})
+
+GunTab:AddToggle({
+	Name = "Enable Multi Bullets",
+	Default = false,
+	Callback = function(Value)
+		BulletToggle = Value
+	end
+})
+
+-------------------------------------------------
+-- INSTANT RELOAD
+-------------------------------------------------
+
+GunTab:AddToggle({
+	Name = "Instant Reload",
+	Default = false,
+	Callback = function(Value)
+		ReloadToggle = Value
+	end
+})
+
+-------------------------------------------------
+-- LOOP APPLY MODS
+-------------------------------------------------
+
+spawn(function()
+	while task.wait(1) do
+		for _,v in pairs(path:GetChildren()) do
+			if v:IsA("ModuleScript") then
+				local gun = require(v)
+
+				if AmmoToggle then
+					gun.AmmoPerMag = AmmoValue
+				end
+
+				if FireToggle then
+					gun.FireRate = FireRateValue
+				end
+
+				if SpreadToggle then
+					gun.Spread = SpreadValue
+				end
+
+				if BulletToggle then
+					gun.ProjectilesPerShot = BulletValue
+				end
+
+				if ReloadToggle then
+					gun.ReloadTime = 0
+				end
+
+			end
+		end
+	end
+end)
+
+CT:AddLabel("Hello, My Owner!")
+CT:AddParagraph("Owner Scripts","Creator: SrzStar Helper: RedHead")
+
+CT:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
