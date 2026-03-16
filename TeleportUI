@@ -1,0 +1,93 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/LapScriptX/Orion/main/OrionLilbrary')))()
+local Window = OrionLib:MakeWindow({Name = "Teleport GUI", IntroText = "LapScripterX",HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local player = game.Players.LocalPlayer
+local Waypoints = {}
+local WaypointName = ""
+local SelectedWaypoint = "None"
+
+local TPTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TPTab:AddTextbox({
+	Name = "Create Name Waypoints",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		WaypointName = Value
+	end	  
+})
+
+local Dropdown = TPTab:AddDropdown({
+	Name = "Choose Load Waypoints",
+	Default = "None",
+	Options = {"None"},
+	Callback = function(Value)
+		SelectedWaypoint = Value
+	end    
+})
+
+TPTab:AddButton({
+	Name = "Create Waypoints",
+	Callback = function()
+
+		local char = player.Character or player.CharacterAdded:Wait()
+		local hrp = char:WaitForChild("HumanoidRootPart")
+
+		if WaypointName ~= "" then
+			Waypoints[WaypointName] = hrp.CFrame
+		end
+
+		local list = {}
+		for name,_ in pairs(Waypoints) do
+			table.insert(list,name)
+		end
+
+		if #list == 0 then
+			list = {"None"}
+		end
+
+		Dropdown:Refresh(list,true)
+
+  	end    
+})
+
+TPTab:AddButton({
+	Name = "Teleport",
+	Callback = function()
+
+		local char = player.Character or player.CharacterAdded:Wait()
+		local hrp = char:WaitForChild("HumanoidRootPart")
+
+		if Waypoints[SelectedWaypoint] then
+			hrp.CFrame = Waypoints[SelectedWaypoint]
+		end
+
+  	end    
+})
+
+-- Delete Waypoint
+TPTab:AddButton({
+	Name = "Delete Waypoints",
+	Callback = function()
+
+		if Waypoints[SelectedWaypoint] then
+			Waypoints[SelectedWaypoint] = nil
+		end
+
+		local list = {}
+		for name,_ in pairs(Waypoints) do
+			table.insert(list,name)
+		end
+
+		if #list == 0 then
+			list = {"None"}
+		end
+
+		Dropdown:Refresh(list,true)
+
+	end    
+})
