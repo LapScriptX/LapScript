@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "LapScriptX", IntroText = "LapScripterX", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionFile"})
+local Window = OrionLib:MakeWindow({Name = "LapScriptX - Beat the Robloxian! [Beta]", IntroText = "LapScripterX", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionFile"})
 
 -------------------------------------------------
 -- Credit Tab
@@ -32,6 +32,18 @@ local CombatTab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+-------------------------------------------------
+-- Teleport
+-------------------------------------------------
+
+
+local TP = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 
 local path = game.ReplicatedStorage.Modules.Tools.Gun.Settings
 
@@ -269,4 +281,44 @@ CT:AddButton({
 	Callback = function()
       	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
   	end    
+})
+
+TP:AddLabel("This Tab Just Tp out of you zone (Set You Zone Still in)")
+
+local SelectedZone = "None"
+
+TP:AddDropdown({
+	Name = "Zone Set",
+	Default = "None",
+	Options = {"None", "Park", "Desert", "Dark Ages", "Militant Outpost", "Sword Fights On The Heights", "Experimental Facility", "Classic Roblox", "Dum Dum Island", "Fortune Tower"},
+	Callback = function(Value)
+		SelectedZone = Value
+	end    
+})
+
+TP:AddButton({
+	Name = "Teleport Out Combat Zone",
+	Callback = function()
+
+		local player = game.Players.LocalPlayer
+		local char = player.Character or player.CharacterAdded:Wait()
+		local hrp = char:WaitForChild("HumanoidRootPart")
+
+		local Zones = {
+			["Park"] = CFrame.new(76, 3, 127),
+			["Desert"] = CFrame.new(-3968, -18, 573),
+			["Dark Ages"] = CFrame.new(115, 3, 5628),
+			["Militant Outpost"] = CFrame.new(-115, 3, -6029),
+			["Sword Fights On The Heights"] = CFrame.new(8000, -7, 8057),
+			["Experimental Facility"] = CFrame.new(-11252, -18, 2288),
+			["Classic Roblox"] = CFrame.new(-11119, 3, 125),
+			["Dum Dum Island"] = CFrame.new(-7885, 1, -5115),
+			["Fortune Tower"] = CFrame.new(-17983, 3, -6029)
+		}
+
+		if Zones[SelectedZone] then
+			hrp.CFrame = Zones[SelectedZone]
+		end
+
+	end    
 })
