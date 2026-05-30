@@ -1,0 +1,134 @@
+local player = game.Players.LocalPlayer
+
+-- GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "PPSAutoMini"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- MAIN FRAME
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0,180,0,100)
+frame.Position = UDim2.new(0.5,-90,0.5,-50)
+frame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+frame.Active = true
+frame.Draggable = true
+
+-- TITLE
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1,0,0,25)
+title.BackgroundTransparency = 1
+title.Text = "PPS Controller"
+title.TextColor3 = Color3.new(1,1,1)
+title.TextScaled = true
+
+-- TOGGLE BUTTON
+local toggle = Instance.new("TextButton", frame)
+toggle.Size = UDim2.new(1,-10,0,35)
+toggle.Position = UDim2.new(0,5,0,35)
+toggle.Text = "OFF"
+toggle.BackgroundColor3 = Color3.fromRGB(40,40,40)
+toggle.TextColor3 = Color3.new(1,1,1)
+toggle.TextScaled = true
+
+-- MINIMIZE BUTTON
+local minimize = Instance.new("TextButton", frame)
+minimize.Size = UDim2.new(0,25,0,25)
+minimize.Position = UDim2.new(1,-30,0,0)
+minimize.Text = "-"
+minimize.BackgroundColor3 = Color3.fromRGB(60,60,60)
+minimize.TextColor3 = Color3.new(1,1,1)
+
+-- HIDE BUTTON
+local hide = Instance.new("TextButton", frame)
+hide.Size = UDim2.new(0,25,0,25)
+hide.Position = UDim2.new(1,-60,0,0)
+hide.Text = "O"
+hide.BackgroundColor3 = Color3.fromRGB(60,60,60)
+hide.TextColor3 = Color3.new(1,1,1)
+
+-- CIRCLE BUTTON (when hidden)
+local circle = Instance.new("TextButton", gui)
+circle.Size = UDim2.new(0,50,0,50)
+circle.Position = UDim2.new(1,-60,0.5,-25)
+circle.BackgroundColor3 = Color3.fromRGB(25,25,25)
+circle.Text = "PPS"
+circle.TextColor3 = Color3.new(1,1,1)
+circle.Visible = false
+circle.Active = true
+circle.Draggable = true
+
+-- STATES
+local enabled = false
+local minimized = false
+
+-- TOGGLE
+toggle.MouseButton1Click:Connect(function()
+	enabled = not enabled
+	toggle.Text = enabled and "ON" or "OFF"
+end)
+
+-- MINIMIZE LOGIC
+minimize.MouseButton1Click:Connect(function()
+	minimized = not minimized
+	
+	if minimized then
+		frame.Size = UDim2.new(0,180,0,30)
+		toggle.Visible = false
+	else
+		frame.Size = UDim2.new(0,180,0,100)
+		toggle.Visible = true
+	end
+end)
+
+-- HIDE LOGIC
+hide.MouseButton1Click:Connect(function()
+	frame.Visible = false
+	circle.Visible = true
+end)
+
+-- RESTORE FROM CIRCLE
+circle.MouseButton1Click:Connect(function()
+	frame.Visible = true
+	circle.Visible = false
+end)
+
+-- =========================
+-- PROMPT SYSTEM (UNCHANGED CORE)
+-- =========================
+
+local prompts = {}
+
+local function addPrompt(v)
+	if v:IsA("ProximityPrompt") then
+		local text = (v.ActionText or ""):lower().." "..(v.ObjectText or ""):lower()
+
+		if text:find("close") or text:find("remove") or text:find("revive") then
+			table.insert(prompts, v)
+		end
+	end
+end
+
+for _,v in pairs(workspace:GetDescendants()) do
+	addPrompt(v)
+end
+
+workspace.DescendantAdded:Connect(addPrompt)
+
+task.spawn(function()
+	while true do
+		task.wait(0.1)
+
+		if enabled then
+			for _,v in pairs(prompts) do
+				if v and v.Parent then
+					pcall(function()
+						v.MaxActivationDistance = math.huge
+						v.RequiresLineOfSight = false
+						fireproximityprompt(v, 0)
+					end)
+				end
+			end
+		end
+	end
+end)
