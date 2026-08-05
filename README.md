@@ -30,10 +30,4 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ---
 
-## ⚠️ Disclaimer
-
-This repository is for educational and testing purposes only. Use these scripts responsibly and at your own risk.
-
----
-
 Maintained by [@SrzStarOG](https://github.com/SrzStarOG).
