@@ -1,6 +1,6 @@
 <div align="center">
 
-# Script - 2026
+# 📁 Script - 2026 📜
 
 A simple Lua script collection for Roblox execution and automation.
 
