@@ -44,10 +44,11 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ## 🌐 Best Executor Paid/Free
 
-Soon
+| Executor | Disocrd | Paid | Free |
+| :--- | :--- |
+| `Real` | Script tailored for Beat The Robloxian game features. |
+| `TeleportUI` | UI interface for teleportation and server manipulation. |
 
 ---
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" width="24" height="24" alt="Chrome Logo" style="vertical-align: middle; margin-right: 5px;"> ![Static Badge](https://img.shields.io/badge/v26.7.26-007ACC) and other Chromium browsers
 
 Maintained by [@SrzStarOG](https://github.com/SrzStarOG).
