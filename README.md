@@ -44,10 +44,12 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ## 🌐 Best Executor Paid/Free
 
-| Executor | Key/Paid/Free |
-| :--- | :--- |
-| `Real` | Key | [Discord](https://discord.com/invite/projectreal) |
-| `TeleportUI` |  |
+| Executor | Type | Status |
+| :--- | :---: | :---: |
+| `Real` | [Discord](https://discord.com/invite/projectreal) / [Website](https://projectreal.gg/) | Key |
+| `Velocity` |  [Discord](https://discord.com/invite/velocityide) / [Website](https://getvelocity.llc/) | Key |
+| `Postassium` | [Discord](https://discord.com/invite/potassium) / [Website](https://www.potassium.pro/) | Paid |
+| `Wave` |  [Discord](https://discord.com/invite/rARhPpN7fY) / [Website](https://getwave.gg/) | Paid |
 
 ---
 
