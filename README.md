@@ -44,10 +44,10 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ## 🌐 Best Executor Paid/Free
 
-| Executor | Paid/Free |
+| Executor | Key/Paid/Free |
 | :--- | :--- |
-| `Real` | Script tailored for Beat The Robloxian game features. |
-| `TeleportUI` | UI interface for teleportation and server manipulation. |
+| `Real` | Key | [Discord](https://discord.com/invite/projectreal) |
+| `TeleportUI` |  |
 
 ---
 
