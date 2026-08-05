@@ -45,6 +45,7 @@ A collection of executable Luau scripts designed for Roblox executors.
 ## 🌐 Best Executor Paid/Free
 
 | Executor | Website | Keyless | Key | Paid |
+| :--- | :--- |
 | `Real` | [Website](https://projectreal.gg/) | ☒ | ☑ | ☒
 ---
 
