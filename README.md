@@ -68,9 +68,8 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 All Executor Info From [WhatExpsAreOnline](https://whatexpsare.online/).
 
----
+</details>
 
-> [!NOTE]
-> ข้อความแจ้งเตือนทั่วไป (กล่องสีฟ้า)
+---
 
 Maintained by [@SrzStarOG](https://github.com/SrzStarOG).
