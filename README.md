@@ -15,7 +15,7 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ---
 
-## 📁 Available Scripts
+## 📁 Scripts
 
 | Script | Description |
 | :--- | :--- |
