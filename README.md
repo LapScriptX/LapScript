@@ -1,6 +1,6 @@
 <div align="center">
 
-# SrzStarOG Script Collection
+# Script - 2026
 
 A simple Lua script collection for Roblox execution and automation.
 
@@ -40,6 +40,12 @@ A collection of executable Luau scripts designed for Roblox executors.
 * 🎮 **Game Utilities:** Tailored scripts for specific Roblox games.
 * ⚡ **Fast & Lightweight:** Ready to execute directly without additional setup.
 
+---
+
+## 🌐 Best Executor Paid/Free
+
+| Executor | Website | Keyless | Key | Paid |
+| `Real` | [Website](https://projectreal.gg/) | ☒ | ☑ | ☒
 ---
 
 Maintained by [@SrzStarOG](https://github.com/SrzStarOG).
