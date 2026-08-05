@@ -43,6 +43,11 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ## 🌐 Best Executor Paid/Free
 
+<details>
+<summary>▶ <b>Open/Close (Executor)</b></summary>
+
+<br>
+
 | Window Executor | Type | Status |
 | :--- | :---: | :---: |
 | `Real` | [Discord](https://discord.com/invite/projectreal) / [Website](https://projectreal.gg/) | Key |
