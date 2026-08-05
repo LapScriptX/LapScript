@@ -50,15 +50,15 @@ A collection of executable Luau scripts designed for Roblox executors.
 | `Velocity` | [Discord](https://discord.com/invite/velocityide) / [Website](https://getvelocity.llc/) | Key |
 | `Postassium` | [Discord](https://discord.com/invite/potassium) / [Website](https://www.potassium.pro/) | Paid |
 | `Wave` | [Discord](https://discord.com/invite/rARhPpN7fY) / [Website](https://getwave.gg/) | Paid |
-| ――――――― | ――――――― | ――――――― |
+| ――――――――― | ――――――― | ――――――― |
 | Mac Executor | Type | Status |
 | `Opinumware` | [Discord](https://discord.com/invite/opiumware) / [Website](https://use.opiumware.today/) | Keyless |
-| ――――――― | ――――――― | ――――――― |
+| ――――――――― | ――――――― | ――――――― |
 | Android Executor | Type | Status |
 | `Delta` | [Discord](discord.gg/deltax) / [Website](https://deltaexploits.gg/) | Key |
 | `Vega X` | [Discord](https://discord.com/invite/vegasupport) / [Website](https://www.vegax.gg/) | Key |
 | `Codex` | [Discord](https://discord.com/invite/codexlol) / [Website](https://codex.lol/) | Key |
-| ――――――― | ――――――― | ――――――― |
+| ――――――――― | ――――――― | ――――――― |
 | iOS Executor | Type | Status |
 | `Delta` | [Discord](discord.gg/deltax) / [Website](https://deltaexploits.gg/) | Key |
 
