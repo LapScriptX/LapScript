@@ -10,14 +10,9 @@
 
 Load the library using either of the following:
 
-**Stable version**
-```lua
-local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/library', true))()
-```
-
 **New version**
 ```lua
-local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/librarynew', true))()
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/SrzStarOG/Script/main/ToraNewUI-backup', true))()
 ```
 
 ---
