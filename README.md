@@ -44,7 +44,7 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 ## 🌐 Best Executor Paid/Free
 
-| Executor | Disocrd | Paid | Free |
+| Executor | Paid/Free |
 | :--- | :--- |
 | `Real` | Script tailored for Beat The Robloxian game features. |
 | `TeleportUI` | UI interface for teleportation and server manipulation. |
