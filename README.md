@@ -19,8 +19,8 @@ A collection of executable Luau scripts designed for Roblox executors.
 
 | Script | Description |
 | :--- | :--- |
-| `BeatTheRobloxian` | Script tailored for Beat The Robloxian game features. |
-| `TeleportUI` | UI interface for teleportation and server manipulation. |
+| `BeatTheRobloxian` | Kill Aura, Modified Guns, Auto Parry, Teleport |
+| `TeleportUI` | Teleport to Target, Game Teleport, Find Low Player Server |
 
 
 ---
