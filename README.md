@@ -70,4 +70,7 @@ All Executor Info From [WhatExpsAreOnline](https://whatexpsare.online/).
 
 ---
 
+> [!NOTE]
+> ข้อความแจ้งเตือนทั่วไป (กล่องสีฟ้า)
+
 Maintained by [@SrzStarOG](https://github.com/SrzStarOG).
