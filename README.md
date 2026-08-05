@@ -45,7 +45,7 @@ A collection of executable Luau scripts designed for Roblox executors.
 ## 🌐 Best Executor Paid/Free
 
 | Executor | Type | Status |
-| :--- | :---: | :---: |
+| :- | :---: | :---: |
 | `Real` | [Discord](https://discord.com/invite/projectreal) / [Website](https://projectreal.gg/) | Key |
 | `Velocity` |  [Discord](https://discord.com/invite/velocityide) / [Website](https://getvelocity.llc/) | Key |
 | `Postassium` | [Discord](https://discord.com/invite/potassium) / [Website](https://www.potassium.pro/) | Paid |
