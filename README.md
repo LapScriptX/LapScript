@@ -9,9 +9,8 @@ A collection of executable Luau scripts designed for Roblox executors.
 | Script | Description |
 | :--- | :--- |
 | `BeatTheRobloxian` | Script tailored for Beat The Robloxian game features. |
-| `SBSD` | Custom game script/module functionality. |
 | `TeleportUI` | UI interface for teleportation and server manipulation. |
-| And More |
+
 
 ---
 
