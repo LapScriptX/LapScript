@@ -6,7 +6,6 @@ A simple Lua script collection for Roblox execution and automation.
 
 ![Lua](https://img.shields.io/badge/LUA-332D6B?style=for-the-badge&logo=lua&logoColor=white)
 ![Roblox](https://img.shields.io/badge/ROBLOX-000000?style=for-the-badge&logo=roblox&logoColor=white)
-![License](https://img.shields.io/badge/LICENSE-MIT-78C000?style=for-the-badge)
 
 </div>
 
