@@ -149,5 +149,5 @@ library:Init()
 
 Made by **Tora**
 
-[Owner UI](https://github.com/liebertsx/Tora-Library/)
+Github: [@Liebertsx](https://github.com/liebertsx/Tora-Library/)
 Telegram: [@getoffset](https://t.me/getoffset)
