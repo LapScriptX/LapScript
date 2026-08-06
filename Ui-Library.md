@@ -161,7 +161,7 @@ library:Close()
 library:Init()
 ```
 
-<details>
+</details>
 
 ---
 
