@@ -10,7 +10,12 @@
 
 Load the library using either of the following:
 
-**New version**
+**Original version**
+```lua
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/librarynew', true))()
+```
+
+**Backup version**
 ```lua
 local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/SrzStarOG/Script/main/ToraNewUI-backup', true))()
 ```
@@ -55,6 +60,19 @@ folder:AddButton({
 folder:AddToggle({
     text = 'Toggle',
     flag = 'toggle',
+    callback = function(v)
+        print(v)
+    end
+})
+```
+
+### Textbox [This it not Original Functions]
+
+```lua
+folder:AddBox({
+    text = 'Textbox',
+    value = '',
+    flag = 'text',
     callback = function(v)
         print(v)
     end
