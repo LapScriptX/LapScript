@@ -6,6 +6,11 @@
 
 ---
 
+<details>
+<summary>▶ <b>Open/Close (Start)</b></summary>
+
+<br>
+
 ## Installation
 
 Load the library using either of the following:
@@ -155,6 +160,8 @@ library:Close()
 ```lua
 library:Init()
 ```
+
+<details>
 
 ---
 
