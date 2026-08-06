@@ -7,7 +7,7 @@
 ---
 
 <details>
-<summary>▶ <b>Open/Close (Start)</b></summary>
+<summary> <b>Open/Close (Start)</b></summary>
 
 <br>
 
