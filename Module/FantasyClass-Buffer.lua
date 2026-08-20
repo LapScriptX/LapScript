@@ -13,14 +13,16 @@ local function createSkillBuffers(skillName)
 end
 
 -- สร้าง Buffer แต่ละสกิล
-local mageExplosion     = createSkillBuffers("ManaExplosion")
-local bardInsult        = createSkillBuffers("Insult")
-local bardInspiration   = createSkillBuffers("Inspiration")
-local pyroBurst         = createSkillBuffers("FireBurst")
-local wizardBolt        = createSkillBuffers("LightningBolt")
-local wizardStorm       = createSkillBuffers("LightningStorm")
-local druidWisp         = createSkillBuffers("WispSummon")
-local druidAura         = createSkillBuffers("EntanglingAura")
+local mageExplosion      = createSkillBuffers("ManaExplosion")
+local bardInsult         = createSkillBuffers("Insult")
+local bardInspiration    = createSkillBuffers("Inspiration")
+local pyroBurst          = createSkillBuffers("FireBurst")
+local wizardBolt         = createSkillBuffers("LightningBolt")
+local wizardStorm        = createSkillBuffers("LightningStorm")
+local druidWisp          = createSkillBuffers("WispSummon")
+local druidAura          = createSkillBuffers("EntanglingAura")
+local warlockSpirit      = createSkillBuffers("GreaterManaSpiritSummon")
+local warlockConvergence = createSkillBuffers("ManaConvergance")
 
 -- จัดหมวดหมู่ตาม Class
 ClassModule.Classes = {
@@ -28,7 +30,8 @@ ClassModule.Classes = {
     ["Bard"]       = { bardInsult, bardInspiration },
     ["Pyromancer"] = { pyroBurst },
     ["Wizard"]     = { wizardBolt, wizardStorm },
-    ["Druid"]      = { druidWisp, druidAura }
+    ["Druid"]      = { druidWisp, druidAura },
+    ["Warlock"]    = { warlockSpirit, warlockConvergence }
 }
 
 return ClassModule
