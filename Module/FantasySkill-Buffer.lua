@@ -39,7 +39,7 @@ ClassModule.Classes = {
 
 -- จัดหมวดหมู่ Wand
 ClassModule.Wands = {
-    ["Wand"]       = { magmaExplosion }
+    ["Magma Wand"]       = { magmaExplosion }
 }
 
 return ClassModule
