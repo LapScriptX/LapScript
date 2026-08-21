@@ -1,6 +1,6 @@
 local ClassModule = {}
 
--- ฟังก์ชันช่วยสร้าง Buffer ลดความซ้ำซ้อนของโค้ด
+-- ฟังก์ชันช่วยสร้าง Buffer
 local function createSkillBuffers(skillName)
     local baseBuffer = buffer.fromstring(string.char(31, 0, #skillName, 0) .. skillName)
     local buffers = { baseBuffer }
@@ -24,7 +24,10 @@ local druidAura          = createSkillBuffers("EntanglingAura")
 local warlockSpirit      = createSkillBuffers("GreaterManaSpiritSummon")
 local warlockConvergence = createSkillBuffers("ManaConvergance")
 
--- จัดหมวดหมู่ตาม Class
+-- สกิล Wand
+local magmaExplosion     = createSkillBuffers("MagmaExplosion")
+
+-- จัดหมวดหมู่ Class
 ClassModule.Classes = {
     ["Mage"]       = { mageExplosion },
     ["Bard"]       = { bardInsult, bardInspiration },
@@ -32,6 +35,11 @@ ClassModule.Classes = {
     ["Wizard"]     = { wizardBolt, wizardStorm },
     ["Druid"]      = { druidWisp, druidAura },
     ["Warlock"]    = { warlockSpirit, warlockConvergence }
+}
+
+-- จัดหมวดหมู่ Wand
+ClassModule.Wands = {
+    ["Wand"]       = { magmaExplosion }
 }
 
 return ClassModule
